@@ -4,11 +4,15 @@
   "description": "tennis website",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "server": "nodemon server"
   },
   "author": "Akanksha Singh",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.9.7"
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "mongoose": "^5.9.7",
+    "nodemon": "^2.0.3"
   }
 }
