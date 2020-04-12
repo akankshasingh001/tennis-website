@@ -17,5 +17,6 @@ app.use('/api/registration', require('./routes/api/userRegistration'));
 app.use('/api/login', require('./routes/api/login'));
 app.use('/api/getUser', require('./routes/api/getUserDetails'));
 app.use('/api/searchUser', require('./routes/api/searchUser'));
+app.use('/api/profile', require('./routes/api/profile'));
 
 app.listen(PORT, () => console.log(`Server Listening on Port ${PORT}`));
