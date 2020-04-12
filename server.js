@@ -12,7 +12,9 @@ app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('App Listening'));
 
-//routes
+//Define routes
 app.use('/api/registration', require('./routes/api/userRegistration'));
+app.use('/api/login', require('./routes/api/login'));
+app.use('/api/getUser', require('./routes/api/getUserDetails'));
 
 app.listen(PORT, () => console.log(`Server Listening on Port ${PORT}`));
