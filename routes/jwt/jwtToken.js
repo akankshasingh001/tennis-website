@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const User = require('../../Model/User');
 
 //Return jsonwebtoken
-const payload = { user: { id: user.id } };
+const payload = { user: { id: User.id } };
 
 jwt.sign(
   payload,
