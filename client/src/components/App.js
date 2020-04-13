@@ -10,6 +10,8 @@ import store from '../store';
 import setAuthToken from '../utils/setAuthToken';
 import loadUserAfterLogin from '../actions/afterLogin';
 
+import '../App.css';
+
 class App extends Component {
   componentDidMount() {
     if (localStorage.token) {
