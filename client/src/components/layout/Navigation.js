@@ -8,7 +8,7 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <Link to="/searchPlayer">
-          <i class="search icon" />
+          <i className="search icon" />
           <span>Search Player</span>
         </Link>
       </li>
