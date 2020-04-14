@@ -1,8 +1,21 @@
-import React, { Component } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { connect } from 'react-redux';
+import getCurrentUserDashboard from '../../actions/userDashboard';
+import Spinner from '../layout/Spinner';
 
-class UserDashboard extends Component {
-  render() {
-    return (
+const UserDashboard = ({
+  getCurrentUserDashboard,
+  user: { user },
+  loading
+}) => {
+  useEffect(() => {
+    getCurrentUserDashboard();
+  }, []);
+
+  return loading && user === null ? (
+    <Spinner />
+  ) : (
+    <Fragment>
       <div className="ui container">
         <div className="ui four column grid">
           <div className="column">
@@ -14,14 +27,29 @@ class UserDashboard extends Component {
                 />
               </div>
               <div className="content">
-                <a className="header">Akanksha Singh</a>
+                <div className="header">
+                  <span> {user && user.firstName}</span>{' '}
+                  <span>{user && user.lastName}</span>
+                </div>
+                <div class="meta">
+                  <span class="date">City : {user && user.city}</span>
+                  <br />
+                  <span class="date">Gender : {user && user.gender}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </Fragment>
+  );
+};
 
-export default UserDashboard;
+const mapStateToProps = state => ({
+  user: state.profile
+});
+
+export default connect(
+  mapStateToProps,
+  { getCurrentUserDashboard }
+)(UserDashboard);
