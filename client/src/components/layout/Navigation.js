@@ -13,7 +13,7 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
-        <Link to="/account">My Account</Link>
+        <Link to="/editDetails">My Account</Link>
       </li>
       <li>
         <Link to="/dashboard">

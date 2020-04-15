@@ -18,5 +18,6 @@ app.use('/api/login', require('./routes/api/login'));
 app.use('/api/getUser', require('./routes/api/getUserDetails'));
 app.use('/api/searchUser', require('./routes/api/searchUser'));
 app.use('/api/profile', require('./routes/api/profile')); //editprofile
-app.use('/api/currentUserDashboard', require('./routes/api/getUserDetails'));
+app.use('/api/getUserProfile', require('./routes/api/getUserDetails'));
+app.use('/api/account', require('./routes/api/account'));
 app.listen(PORT, () => console.log(`Server Listening on Port ${PORT}`));
