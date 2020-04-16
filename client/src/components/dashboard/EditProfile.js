@@ -1,9 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUserProfile } from '../../actions/editProfile';
+import { getUserProfile, editUserProfile } from '../../actions/editProfile';
 import Spinner from '../layout/Spinner';
 
-const EditProfile = ({ getUserProfile, profile: { profile } }) => {
+const EditProfile = ({
+  getUserProfile,
+  editUserProfile,
+  profile: { profile }
+}) => {
   const { yearsPlayed, profession, interests, favPro, contactNumber } = profile;
   const [formData, setFormData] = useState({
     yearsPlayedform: yearsPlayed,
@@ -23,10 +27,15 @@ const EditProfile = ({ getUserProfile, profile: { profile } }) => {
 
   useEffect(() => {
     getUserProfile();
-  }, [getUserProfile]);
+  }, [getUserProfile, editUserProfile]);
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onSubmit = e => {
+    e.preventDefault();
+    //console.log(formData);
+    editUserProfile(formData);
+  };
 
   return profile === '' ? (
     <Spinner />
@@ -34,7 +43,7 @@ const EditProfile = ({ getUserProfile, profile: { profile } }) => {
     <Fragment>
       <div className="ui container">
         {profile !== '' ? (
-          <form className="ui form">
+          <form className="ui form" onSubmit={e => onSubmit(e)}>
             <h1 className="ui dividing header">Edit Profile</h1>
             <div className="two fields">
               <div className="field">
@@ -116,5 +125,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUserProfile }
+  { getUserProfile, editUserProfile }
 )(EditProfile);

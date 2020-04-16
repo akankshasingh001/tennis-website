@@ -14,9 +14,19 @@ export const editUserAccount = formData => async dispatch => {
   try {
     const config = { headers: { 'Content-Type': 'application/json' } };
     const res = await axios.post('api/account', formData, config);
-    alert(`Account Updated ${res}`);
+    //console.log(res.data, formData);
     dispatch({ type: EDIT_ACCOUNT, payload: res.data });
-    alert(`Account Updated ${res}`);
+    //console.log(res.data, formData);
+  } catch (err) {
+    dispatch({ type: AUTH_ERROR });
+  }
+};
+
+export const editUserProfile = formData => async dispatch => {
+  try {
+    const config = { headers: { 'Content-Type': 'application/json' } };
+    const res = await axios.post('api/profile', formData, config);
+    dispatch({ type: EDIT_PROFILE, payload: res.data });
   } catch (err) {
     dispatch({ type: AUTH_ERROR });
   }

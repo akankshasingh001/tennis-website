@@ -31,10 +31,10 @@ const UserDashboard = ({
                   <span> {user && user.firstName}</span>{' '}
                   <span>{user && user.lastName}</span>
                 </div>
-                <div class="meta">
-                  <span class="date">City : {user && user.city}</span>
+                <div className="meta">
+                  <span className="date">City : {user && user.city}</span>
                   <br />
-                  <span class="date">Gender : {user && user.gender}</span>
+                  <span className="date">Gender : {user && user.gender}</span>
                 </div>
               </div>
             </div>
