@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import searchUser from '../../actions/searchUser';
 
-const SearchUser = () => {
+const SearchUser = ({ searchUser }) => {
+  useEffect(() => {
+    searchUser();
+  }, [searchUser]);
   return (
     <div className="ui container">
       <form className="ui form">
