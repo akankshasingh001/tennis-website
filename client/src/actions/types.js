@@ -9,3 +9,5 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const USER_DASHBOARD = 'USER_DASHBOARD';
 export const EDIT_PROFILE = 'EDIT_PROFILE';
 export const EDIT_ACCOUNT = 'EDIT_ACCOUNT';
+export const USER_PROFILE = 'USER_PROFILE';
+export const SEARCH_USER = 'SEARCH_USER';
