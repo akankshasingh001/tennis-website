@@ -24,16 +24,9 @@ router.post('/', [auth], async (req, res) => {
   if (image) profileFields.image = image;
   if (yearsPlayed) profileFields.yearsPlayed = yearsPlayed;
   if (profession) profileFields.profession = profession;
-  if (interests) {
-    profileFields.interests = interests
-      .split(',')
-      .map(intrest => intrest.trim());
-  }
-  if (favPro) {
-    profileFields.favPro = favPro.split(',').map(pro => pro.trim());
-  }
+  if (interests) profileFields.interests = interests;
+  if (favPro) profileFields.favPro = favPro;
   if (contactNumber) profileFields.contactNumber = contactNumber;
-
   try {
     let profile = await Profile.findOne({ user: req.user.id });
 

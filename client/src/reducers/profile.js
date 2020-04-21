@@ -7,7 +7,6 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  token: localStorage.getItem('token'),
   isAuthenticated: null,
   profile: '',
   loading: true,
@@ -50,8 +49,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         profile: payload,
-        loading: false,
-        isAuthenticated: true
+        loading: false
       };
     default:
       return state;
