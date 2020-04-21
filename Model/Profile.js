@@ -6,8 +6,8 @@ const ProfileSchema = new Schema({
   image: { type: String },
   yearsPlayed: { type: Number },
   profession: { type: String },
-  interests: { type: [String] },
-  favPro: { type: [String] },
+  interests: { type: String },
+  favPro: { type: String },
   contactNumber: { type: Number }
 });
 
