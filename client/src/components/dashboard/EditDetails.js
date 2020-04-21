@@ -9,14 +9,14 @@ const EditDetails = () => {
     <div className="ui container">
       <Tabs>
         <TabList>
-          <Tab>Profile</Tab>
           <Tab>Account</Tab>
+          <Tab>Profile</Tab>
         </TabList>
         <TabPanel>
-          <EditProfile />
+          <EditAccount />
         </TabPanel>
         <TabPanel>
-          <EditAccount />
+          <EditProfile />
         </TabPanel>
       </Tabs>
     </div>
