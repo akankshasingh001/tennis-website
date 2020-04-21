@@ -31,9 +31,15 @@ const EditAccount = ({
 
   const onSubmit = e => {
     e.preventDefault();
-    //console.log(formData);
-    editUserAccount(formData);
+    const user = {};
+    user.firstName = formData.fName;
+    user.lastName = formData.lName;
+    user.city = formData.cityform;
+    user.zipcode = formData.zipcodeform;
+    user.password = formData.password;
+    editUserAccount(user);
   };
+
   useEffect(() => {
     getUserProfile();
   }, [getUserProfile]);
