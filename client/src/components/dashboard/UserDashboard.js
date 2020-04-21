@@ -10,7 +10,7 @@ const UserDashboard = ({
 }) => {
   useEffect(() => {
     getCurrentUserDashboard();
-  }, []);
+  }, [getCurrentUserDashboard]);
 
   return loading && user === null ? (
     <Spinner />
