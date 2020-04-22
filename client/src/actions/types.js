@@ -16,3 +16,4 @@ export const ERROR = 'ERROR';
 export const GET_PROFILE = 'GET_PROFILE';
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const LEAGUE_DETAILS = 'LEAGUE_DETAILS';

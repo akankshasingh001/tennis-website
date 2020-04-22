@@ -23,5 +23,9 @@ app.use('/api/account', require('./routes/api/account'));
 
 //admin
 app.use('/adminApi/league', require('./routes/adminApi/league'));
+app.use(
+  '/adminApi/getLeagueDetails',
+  require('./routes/adminApi/getLeagueDetails')
+);
 
 app.listen(PORT, () => console.log(`Server Listening on Port ${PORT}`));
