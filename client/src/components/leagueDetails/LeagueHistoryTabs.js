@@ -13,6 +13,8 @@ class LeagueHistoryTabs extends Component {
           </TabList>
 
           <TabPanel></TabPanel>
+          <TabPanel></TabPanel>
+          <TabPanel></TabPanel>
         </Tabs>
       </div>
     );
