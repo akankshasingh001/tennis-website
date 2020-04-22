@@ -20,4 +20,8 @@ app.use('/api/searchUser', require('./routes/api/searchUser'));
 app.use('/api/profile', require('./routes/api/profile')); //editprofile
 app.use('/api/getUserProfile', require('./routes/api/getUserDetails'));
 app.use('/api/account', require('./routes/api/account'));
+
+//admin
+app.use('/adminApi/league', require('./routes/adminApi/league'));
+
 app.listen(PORT, () => console.log(`Server Listening on Port ${PORT}`));
