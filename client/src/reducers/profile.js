@@ -2,8 +2,7 @@ import {
   USER_DASHBOARD,
   EDIT_PROFILE,
   EDIT_ACCOUNT,
-  USER_PROFILE,
-  SEARCH_USER
+  USER_PROFILE
 } from '../actions/types';
 
 const initialState = {
@@ -31,13 +30,6 @@ export default (state = initialState, action) => {
         isAuthenticated: true,
         loading: false
       };
-    case SEARCH_USER:
-      return {
-        ...state,
-        user: payload,
-        loading: false
-      };
-
     case EDIT_ACCOUNT:
       return {
         ...state,
