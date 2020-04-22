@@ -1,56 +1,85 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import searchUser from '../../actions/searchUser';
+import SearchUserList from './SearchUserList';
 
-const SearchUser = ({ searchUser }) => {
-  const initialValue = { fname: '', lname: '' };
+class SearchUser extends Component {
+  // componentDidMount() {
+  //   this.props.searchUser();
+  // }
 
-  const [formData, setFormData] = useState(initialValue);
+  state = { fname: '', lname: '' };
 
-  const onInputChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  onInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  const onFormSubmit = e => {
+  renderList = () => {
+    const values = this.props.search.user ? this.props.search.user : [];
+    return (
+      <div className="ui middle aligned list">
+        {values.map(value => {
+          return (
+            <ul>
+              <li class="ui left floated header">
+                {value.firstName} {value.lastName}
+              </li>
+              <li class="ui right floated header">{value.city}</li>
+            </ul>
+          );
+        })}
+      </div>
+    );
+  };
+
+  onFormSubmit = e => {
     e.preventDefault();
-    searchUser(formData);
+    const formData = { fname: this.state.fname, lname: this.state.lname };
+    this.props.searchUser(formData);
+    this.renderList();
   };
-
-  useEffect(() => {
-    searchUser();
-  }, [searchUser]);
-
-  return (
-    <div className="ui container">
-      <form className="ui form" onSubmit={onFormSubmit}>
-        <h4 className="ui dividing header">Search Player</h4>
-        <div className="two fields">
-          <div className="field">
-            <label>First Name</label>
-            <input
-              type="text"
-              placeholder="First Name"
-              name="fname"
-              onChange={onInputChange}
-            />
+  render() {
+    return (
+      <div className="ui container">
+        <form className="ui form" onSubmit={e => this.onFormSubmit(e)}>
+          <h4 className="ui dividing header">Search Player</h4>
+          <div className="two fields">
+            <div className="field">
+              <label>First Name</label>
+              <input
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                onChange={this.onInputChange}
+              />
+            </div>
+            <div className="field">
+              <label>Last Name</label>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                onChange={this.onInputChange}
+              />
+            </div>
           </div>
-          <div className="field">
-            <label>Last Name</label>
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lname"
-              onChange={onInputChange}
-            />
-          </div>
+          <input type="submit" className="ui button primary" value="Search" />
+        </form>
+
+        <div>
+          {/* {this.renderList()} */}
+          <SearchUserList searchUserList={this.renderList()} />
         </div>
-        <input type="submit" className="ui button primary" value="Search" />
-      </form>
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  search: state.search
+});
 
 export default connect(
-  null,
+  mapStateToProps,
   { searchUser }
 )(SearchUser);
