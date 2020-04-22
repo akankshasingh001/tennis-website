@@ -1,7 +1,6 @@
 import { CREATE_PROFILE, GET_PROFILE } from '../actions/types';
 
 const initialState = {
-  // token: localStorage.getItem('token'),
   profile: null,
   loading: true,
   error: {}
