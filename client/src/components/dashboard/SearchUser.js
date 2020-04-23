@@ -4,10 +4,6 @@ import searchUser from '../../actions/searchUser';
 import SearchUserList from './SearchUserList';
 
 class SearchUser extends Component {
-  // componentDidMount() {
-  //   this.props.searchUser();
-  // }
-
   state = { fname: '', lname: '' };
 
   onInputChange = e => {
@@ -16,20 +12,16 @@ class SearchUser extends Component {
 
   renderList = () => {
     const values = this.props.search.user ? this.props.search.user : [];
-    return (
-      <div className="ui middle aligned list">
-        {values.map(value => {
-          return (
-            <ul>
-              <li class="ui left floated header">
-                {value.firstName} {value.lastName}
-              </li>
-              <li class="ui right floated header">{value.city}</li>
-            </ul>
-          );
-        })}
-      </div>
-    );
+    return values.map(value => {
+      return (
+        <tr>
+          <td>
+            {value.firstName} {'  '} {value.lastName}
+          </td>
+          <td>{value.city}</td>
+        </tr>
+      );
+    });
   };
 
   onFormSubmit = e => {
@@ -38,6 +30,7 @@ class SearchUser extends Component {
     this.props.searchUser(formData);
     this.renderList();
   };
+
   render() {
     return (
       <div className="ui container">
@@ -67,7 +60,6 @@ class SearchUser extends Component {
         </form>
 
         <div>
-          {/* {this.renderList()} */}
           <SearchUserList searchUserList={this.renderList()} />
         </div>
       </div>
