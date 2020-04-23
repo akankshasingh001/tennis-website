@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOG_IN, LOGIN_FAIL, CLEAR_PROFILE, LOG_OUT } from './types';
+import { LOG_IN, ERROR, CLEAR_PROFILE, LOG_OUT } from './types';
 import loadUserAfterLogin from './afterLogin';
 
 export const login = (email, password) => async dispatch => {
@@ -16,7 +16,7 @@ export const login = (email, password) => async dispatch => {
 
     dispatch(loadUserAfterLogin());
   } catch (err) {
-    dispatch({ type: LOGIN_FAIL });
+    dispatch({ type: ERROR });
   }
 };
 

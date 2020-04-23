@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { REGISTER_SUCCESS, REGISTER_FAIL } from './types';
+import { REGISTER_SUCCESS, ERROR } from './types';
 
 export const register = ({
   firstName,
@@ -30,6 +30,6 @@ export const register = ({
     const res = await axios.post('/api/registration', body, config);
     dispatch({ type: REGISTER_SUCCESS, payload: res.data });
   } catch (err) {
-    dispatch({ type: REGISTER_FAIL });
+    dispatch({ type: ERROR });
   }
 };

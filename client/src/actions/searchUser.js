@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SEARCH_USER, AUTH_ERROR } from './types';
+import { SEARCH_USER, ERROR } from './types';
 
 const searchUser = formData => async dispatch => {
   try {
@@ -8,7 +8,7 @@ const searchUser = formData => async dispatch => {
     );
     dispatch({ type: SEARCH_USER, payload: res.data });
   } catch (error) {
-    dispatch({ type: AUTH_ERROR });
+    dispatch({ type: ERROR });
   }
 };
 

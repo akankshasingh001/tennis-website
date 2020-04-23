@@ -17,6 +17,7 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case USER_PROFILE:
+    case EDIT_PROFILE:
       return {
         ...state,
         profile: payload,
@@ -24,23 +25,11 @@ export default (state = initialState, action) => {
         loading: false
       };
     case USER_DASHBOARD:
-      return {
-        ...state,
-        user: payload,
-        isAuthenticated: true,
-        loading: false
-      };
     case EDIT_ACCOUNT:
       return {
         ...state,
         user: payload,
-        loading: false,
-        isAuthenticated: true
-      };
-    case EDIT_PROFILE:
-      return {
-        ...state,
-        profile: payload,
+        isAuthenticated: true,
         loading: false
       };
     default:

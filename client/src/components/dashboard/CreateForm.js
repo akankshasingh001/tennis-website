@@ -28,13 +28,6 @@ const CreateForm = ({ createProfile }) => {
     createProfile(profileForm);
   };
 
-  // useEffect(() => {
-  //   const runEffect = async () => {
-  //     //const data = await createProfile();
-  //     await setProfileForm(profileForm);
-  //   };
-  //   runEffect();
-  // }, [setProfileForm]);
   return (
     <div>
       <div className="ui container">
