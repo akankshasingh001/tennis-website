@@ -23,7 +23,7 @@ const UserDashboard = ({
           <div className="left floated five wide column">
             <div className="ui card">
               <div className="content">
-                <div className="ui small image">
+                <div className="ui small image" style={{ width: '100%' }}>
                   <img
                     src="https://img.favpng.com/13/22/9/tennis-cartoon-play-stock-illustration-png-favpng-H5T2rJXTeJGvx8Gt8fcQt5LfB.jpg"
                     alt="img"
